@@ -1,0 +1,16 @@
+{% extends "api/base.html" %}
+
+{% block content %}
+<h2>References</h2>
+<ul>
+    {% for reference in object_list %}
+        <div class="col-sm-4 text-center">
+            <a href="/">
+                <img class="img-responsive" src="{{ reference.picture }}" alt="{{ reference.name }}">
+            </a>
+            <h3><a href="/">{{ reference.name }}</a></h3>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}<div class="clearfix"></div>{% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}

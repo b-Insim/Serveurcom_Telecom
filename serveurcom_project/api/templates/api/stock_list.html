@@ -1,0 +1,16 @@
+{% extends "api/base.html" %}
+
+{% block content %}
+<h2>Stocks</h2>
+<ul>
+    {% for stock in object_list %}
+        <div class="col-sm-4 text-center">
+            <a href="/">
+                <img class="img-responsive" src="{{ stock.picture }}" alt="{{ stock.name }}">
+            </a>
+            <h3><a href="/">{{ stock.name }}</a></h3>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}<div class="clearfix"></div>{% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "api/base.html" %}
+
+{% block content %}
+<h2>Menu/reference</h2>
+<ul>
+    {% for menu in object_list %}
+        <!-- <li>{{ menu.ref }}</li> -->
+        <div class="col-sm-4 text-center">
+            <a href="/">
+                <img class="img-responsive" src="{{ menu.picture }}" alt="{{ menu.ref }}">
+            </a>
+            <h3><a href="/">{{ menu.ref }}</a></h3>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}<div class="clearfix"></div>{% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}
+
